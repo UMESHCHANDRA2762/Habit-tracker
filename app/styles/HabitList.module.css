@@ -1,0 +1,110 @@
+/* HabitList.module.css */
+
+.habitList {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.habitItem {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.habitName {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  flex-grow: 1;
+}
+
+.habitCheckbox {
+  margin-left: 10px; /* Space the checkbox out a bit */
+}
+
+.deleteButton,
+.editButton {
+  background-color: #ffa500;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.deleteButton:hover {
+  background-color: #e04141;
+}
+
+.editButton:hover {
+  background-color: #e68a00;
+}
+
+.habitItem.completed .habitName {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.editFormContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editForm {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 300px;
+}
+
+.editInput {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.saveButton,
+.cancelButton {
+  padding: 10px 15px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.saveButton {
+  background-color: #4caf50;
+  color: white;
+}
+
+.cancelButton {
+  background-color: #f44336;
+  color: white;
+}
+
+.saveButton:hover {
+  background-color: #45a049;
+}
+
+.cancelButton:hover {
+  background-color: #e53935;
+}
