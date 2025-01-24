@@ -1,13 +1,21 @@
 import { useState } from "react";
 import styles from "../styles/Home.module.css"; // Import the specific CSS for HabitForm
 
+type Habit = {
+  name: string;
+  goal: string;
+  period: string;
+  type: string;
+  completed: boolean;
+};
+
 export default function HabitForm({
   closeModal,
   addHabit,
   setSuccessMessage, // Accept setSuccessMessage as prop
 }: {
   closeModal: () => void;
-  addHabit: (habit: any) => void;
+  addHabit: (habit: Habit) => void; // Change 'any' to 'Habit' type
   setSuccessMessage: (message: string) => void; // Type for setSuccessMessage
 }) {
   const [name, setName] = useState("");
@@ -22,7 +30,7 @@ export default function HabitForm({
       return;
     }
 
-    const newHabit = {
+    const newHabit: Habit = { // Explicitly define newHabit type
       name,
       goal,
       period: `${period} days`, // Add "days" to the period

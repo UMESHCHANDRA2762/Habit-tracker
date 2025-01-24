@@ -6,8 +6,16 @@ import HabitList from "./components/HabitList";
 import HabitForm from "./components/HabitForm";
 import SuccessMessage from "./components/SuccessMessage"; // Import SuccessMessage
 
+type Habit = {
+  name: string;
+  goal: string;
+  period: string;
+  type: string;
+  completed: boolean;
+};
+
 export default function HomePage() {
-  const [habits, setHabits] = useState<any[]>([]);
+  const [habits, setHabits] = useState<Habit[]>([]); // Update to use Habit type
   const [completed, setCompleted] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string>("");
@@ -18,7 +26,7 @@ export default function HomePage() {
     calculateCompleted(storedHabits);
   }, []);
 
-  const calculateCompleted = (habits: any[]) => {
+  const calculateCompleted = (habits: Habit[]) => {
     const completedCount = habits.filter((habit) => habit.completed).length;
     setCompleted(completedCount);
   };
@@ -28,7 +36,7 @@ export default function HomePage() {
     calculateCompleted(habits);
   }, [habits]);
 
-  const addHabit = (habit: any) => {
+  const addHabit = (habit: Habit) => { // Updated to use Habit type
     setHabits((prevHabits) => [...prevHabits, habit]);
     setSuccessMessage("Done! New habit has been added. Let's do our best to achieve the goal!");
 

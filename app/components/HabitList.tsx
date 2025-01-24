@@ -1,14 +1,22 @@
 import { useState } from 'react';
-import styles from '../styles/HabitList.module.css';  // Import the CSS module
+import styles from '../styles/HabitList.module.css'; // Import the CSS module
+
+type Habit = {
+  name: string;
+  goal: string;
+  period: string;
+  type: string;
+  completed: boolean;
+};
 
 export default function HabitList({
   habits,
   setHabits,
 }: {
-  habits: any[];
-  setHabits: (habits: any[]) => void;
+  habits: Habit[]; // Type the habits array
+  setHabits: (habits: Habit[]) => void; // Type the setHabits function
 }) {
-  const [isEditing, setIsEditing] = useState(false);  // Track if editing mode is active
+  const [isEditing, setIsEditing] = useState(false); // Track if editing mode is active
   const [editIndex, setEditIndex] = useState<number | null>(null); // Track which habit is being edited
   const [editedHabitName, setEditedHabitName] = useState<string>('');
 
@@ -31,8 +39,8 @@ export default function HabitList({
 
   const handleEditSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (editedHabitName.trim() === "") {
-      alert("Please enter a valid name!");
+    if (editedHabitName.trim() === '') {
+      alert('Please enter a valid name!');
       return;
     }
 
